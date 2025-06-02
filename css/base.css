@@ -13,23 +13,4 @@
 		gap: 0.5rem 0.5rem;
 		place-content: center;
 	}
-
-	button {
-		display: flex;
-		padding: 0.5em 1.125em;
-		color: #fff;
-		background-color: #000;
-		border-radius: 0.25rem;
-		justify-content: center;
-		align-items: center;
-	}
-
-	select {
-		display: flex;
-		padding: 0.5em 1.125em;
-		background: transparent;
-		border: 0.063rem solid #000;
-		border-radius: 0.025rem;
-		flex-direction: column;
-	}
 }
