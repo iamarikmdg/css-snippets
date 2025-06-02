@@ -1,0 +1,59 @@
+@layer base {
+	button {
+		&:has(+ [popover]:popover-open) {
+			background-color: red;
+		}
+	}
+
+	[popover] {
+		--po-mw: min(100%, calc(100vw - 2rem));
+		--po-bg: #f1f1f1;
+		--po-border: 0.063rem solid #ddd;
+		--po-radius: 0.5rem;
+		--po-triangle-size: 0.75rem;
+		--po-shadow: 0 0.75rem 2rem -1rem rgba(0 0 0 / 35%);
+		--po-position: bottom;
+		--po-transform: 0 2rem;
+
+		display: flex;
+		width: var(--po-mw);
+		overflow: visible;
+		border: 0;
+		opacity: 0;
+		transition: all 350ms allow-discrete;
+		align-items: center;
+		position-area: var(--po-position);
+		flex-direction: column;
+		translate: var(--po-transform);
+
+		&::before {
+			width: 0;
+			height: 0;
+			border-width: 0 var(--po-triangle-size) var(--po-triangle-size)
+				var(--po-triangle-size);
+			border-style: solid;
+			border-color: transparent transparent var(--po-bg) transparent;
+			transform: translateY(1px); /* offset */
+			content: "";
+		}
+		.content {
+			padding: 1rem;
+			background-color: var(--po-bg);
+			border: var(--po-border);
+			border-radius: var(--po-radius);
+			box-shadow: var(--po-shadow);
+		}
+
+		&:popover-open {
+			opacity: 1;
+			translate: 0 0.5rem;
+		}
+	}
+
+	@starting-style {
+		[popover]:popover-open {
+			opacity: 0;
+			translate: 0 2rem;
+		}
+	}
+}
