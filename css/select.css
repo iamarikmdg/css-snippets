@@ -1,0 +1,95 @@
+@layer base {
+	select {
+		--selected-bg: #333;
+		--hover-bg: #f4f4f4;
+
+		padding: 0.75em 1.25em;
+		min-width: 15rem;
+		font-size: 0.85em;
+		border: 0.063rem solid #ddd;
+		appearance: base-select;
+
+		&::picker-icon {
+			display: none;
+			content: "";
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:open {
+			button span {
+				rotate: -180deg;
+			}
+		}
+
+		button {
+			display: flex;
+			width: 100%;
+			gap: 1rem;
+			justify-content: space-between;
+			span {
+				transition: all 250ms ease-in-out;
+			}
+		}
+
+		selectedcontent {
+			.description,
+			.icon {
+				display: none;
+			}
+		}
+
+		option {
+			display: flex;
+			padding: 0.75rem 1rem;
+			font-size: 1.15em;
+			gap: 0.75rem;
+			align-items: flex-start;
+
+			&::checkmark {
+				display: none;
+				content: "";
+			}
+
+			&:hover {
+				background-color: var(--hover-bg);
+				cursor: pointer;
+			}
+
+			&:focus-visible {
+				background-color: var(--hover-bg);
+			}
+
+			&:checked {
+				color: #fff;
+				background: var(--selected-bg);
+
+				.description {
+					color: #ddd;
+				}
+			}
+
+			.title {
+				margin-bottom: 0.125rem;
+			}
+
+			.description {
+				color: #6a6a6a;
+				font-size: 0.75em;
+			}
+		}
+	}
+
+	::picker(select) {
+		--radius: 0.5rem;
+		--offset: -0.25rem;
+		border: 1px solid #ddd;
+		box-shadow: 0 0.75rem 2rem -1rem rgba(0 0 0 / 35%);
+		appearance: base-select;
+		border-bottom-left-radius: var(--radius);
+		border-bottom-right-radius: var(--radius);
+		translate: 0 var(--offset);
+	}
+}
