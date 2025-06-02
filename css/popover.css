@@ -13,6 +13,7 @@
 		--po-triangle-size: 0.75rem;
 		--po-shadow: 0 0.75rem 2rem -1rem rgba(0 0 0 / 35%);
 		--po-position: bottom;
+		--po-pos-fallback: --left;
 		--po-transform: 0 2rem;
 
 		display: flex;
@@ -23,6 +24,7 @@
 		transition: all 350ms allow-discrete;
 		align-items: center;
 		position-area: var(--po-position);
+		position-try-fallbacks: var(--po-pos-fallback);
 		flex-direction: column;
 		translate: var(--po-transform);
 
